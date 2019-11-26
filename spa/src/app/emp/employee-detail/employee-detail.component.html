@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="img-thumbnail" src="{{employee.photoUrl || '../../../assets/user.png'}}" alt="{{employee.username}}">
+        <div class="card-body">
+          <div>
+            <strong>Employee:</strong>
+            <p>{{employee.efirstname}}, {{employee.elastname}}</p>
+          </div>
+          <div>
+            <strong>Age:</strong>
+            <p>{{employee.age}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{lastactive| timeAgo}}</p>
+          </div>
+          <div>
+            <strong>Employee Since:</strong>
+            <p>{{employee.created | date: 'mediumDate'}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary w-100">Like</button>
+            <button class="btn btn-success w-100">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="About {{employee?.username}}">
+            <h4>Fullname:</h4>
+            <p>{{employee.efirstname}}, {{employee.elastname}}</p>
+          </tab>
+          <tab heading="Skills & Languages">
+            <h4>Skills:</h4>
+            <p>{{employee.eskills}}</p>
+            <h4>Languages:</h4>
+            <p>{{employee.elanguages}}</p>
+          </tab>
+          <tab heading="Photos"> 
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+          </tab>
+          <tab heading="Messages">
+            <p>messages will go here.</p>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
+

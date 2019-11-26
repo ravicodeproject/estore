@@ -1,0 +1,30 @@
+[
+    {
+        "eid": 1,
+        "efirstname": "Ravikumar",
+        "elastname": "Gunji",
+        "eage": 34,
+        "egender": "male",
+        "edateofbirth": "1985-12-04T00:00:00",
+        "eemail": "ravicode@gmail.com",
+        "elanguages": "Telugu,English",
+        "eskills": "C#,JAVA",
+        "ereligion": "Hindu",
+        "enationality": "Indian",
+        "ecaste": "Vadde"
+    },
+    {
+        "eid": 2,
+        "efirstname": "Siva",
+        "elastname": "Gunji",
+        "eage": 2,
+        "egender": "male",
+        "edateofbirth": "2017-09-11T00:00:00",
+        "eemail": "siva@gmail.com",
+        "elanguages": "Telgod",
+        "eskills": "Playing,Hitting",
+        "ereligion": "Hindu",
+        "enationality": "Indian",
+        "ecaste": "Vadde"
+    }
+]

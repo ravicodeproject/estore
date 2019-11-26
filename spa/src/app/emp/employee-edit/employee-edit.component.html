@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>Your Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <p *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have made changes, Any unsaved changes will be lost
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="img-thumbnail" src="{{employee.photoUrl || '../../../assets/user.png'}}" alt="{{employee.username}}">
+        <div class="card-body">
+          <div>
+            <strong>Your Name:</strong>
+            <p>{{employee.efirstname}}, {{employee.elastname}}</p>
+          </div>
+          <div>
+            <strong>Age:</strong>
+            <p>{{employee.age}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{lastactive | timeAgo}}</p>
+          </div>
+          <div>
+            <strong>Employee Since:</strong>
+            <p>{{employee.created | date: 'mediumDate'}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button [disabled]="!editForm.dirty" form="editform" class="btn btn-success btn-block">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="Edit Profile">
+            <form id="editform" #editForm="ngForm" (ngSubmit)="updateEmployee()">
+              <div class="form-row">
+                  <div class="form-group col-md-6">
+                      <label for="eid">Employee ID</label>
+                      <input name="eid" id="eid" type="text" class="form-control" placeholder="Employee ID"
+                        [(ngModel)]="employee.eid" disabled>
+                    </div>
+                <div class="form-group col-md-6">
+                  <label for="Username">Username</label>
+                  <input name="Username" id="Username" type="text" class="form-control" placeholder="Username"
+                    [(ngModel)]="employee.username">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="efirstname">Firstname</label>
+                  <input name="efirstname" id="efirstname" type="text" class="form-control" placeholder="Firstname"
+                    [(ngModel)]="employee.efirstname">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="elastname">Lastname</label>
+                  <input name="elastname" id="elastname" type="text" class="form-control" placeholder="Lastname"
+                    [(ngModel)]="employee.elastname">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="age">Age</label>
+                  <input name="age" id="age" type="text" class="form-control" placeholder="Age"
+                    [(ngModel)]="employee.age" disabled>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="egender">Gender</label>                 
+                    <select name="egender" id="egender" type="text" class="form-control" 
+                    [(ngModel)]="employee.egender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>                    
+                      </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="edateofbirth">Date of Birth</label>
+                  <input name="edateofbirth" id="edateofbirth" type="text" class="form-control"
+                    placeholder="Date of Birth"  bsDatepicker [bsConfig]="bsconfig" [(ngModel)]="employee.edateofbirth">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="eemail">Email:</label>
+                  <input id="eemail" name="eemail" class="form-control" placeholder="Email"
+                    [(ngModel)]="employee.eemail" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="eskills">Skills:</label>
+                  <input id="eskills" name="eskills" class="form-control" placeholder="Skills"
+                    [(ngModel)]="employee.eskills" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="elanguages">Languages:</label>
+                  <input id="elanguages" name="elanguages" class="form-control" placeholder="Languages"
+                    [(ngModel)]="employee.elanguages" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="ereligion">Religion:</label>
+                  <input id="ereligion" name="ereligion" class="form-control" placeholder="Religion"
+                    [(ngModel)]="employee.ereligion" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="enationality">Nationality:</label>
+                  <input id="enationality" name="enationality" class="form-control" placeholder="Nationality"
+                    [(ngModel)]="employee.enationality" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="ecaste">Caste:</label>
+                  <input id="ecaste" name="ecaste" class="form-control" placeholder="Caste"
+                    [(ngModel)]="employee.ecaste" />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="lastActive">Last Active:</label>
+                  <input id="lastActive" name="lastActive" class="form-control" type="text" placeholder="Last Active"
+                    [(ngModel)]="employee.lastActive" bsDatepicker [bsConfig]="bsconfig">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="created">Created Date:</label>
+                  <input id="created" name="created" type="text" class="form-control" placeholder="Created Date"
+                    [(ngModel)]="employee.created" bsDatepicker [bsConfig]="bsconfig">
+                </div>
+              </div>
+            </form>
+          </tab>
+          <tab heading="Photos">
+            <p>Photos editing here</p>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>
